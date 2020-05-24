@@ -1,5 +1,6 @@
+# 貪欲法(Greedyアルゴリズム)
 s = input()
-while len(s) > 0:
+while len(s) != 0:
     if s[-5:] == 'dream' or s[-5:] == 'erase':
         s = s[:-5]
     elif s[-6:] == 'eraser':
@@ -8,8 +9,4 @@ while len(s) > 0:
         s = s[:-7]
     else:
         break
-
-if len(s) == 0:
-    print('YES')
-else:
-    print('NO')
+print('YES' if len(s) == 0 else 'NO')
