@@ -1,17 +1,6 @@
-import math
-
-n = str(input())
-if int(n) == 0:
-    print('Yes')
-    exit()
-
-data_size = int (math.log10(int(n)) + 1)
-
+N = str(input())
 ans = 0
-for i in range(data_size):
-    ans += int(n[i:i+1])
+for i in range(len(N)):
+    ans += int(N[i])
 
-if ans % 9 == 0:
-    print('Yes')
-else:
-    print('No')
+print('Yes') if ans%9 == 0 else print('No')
