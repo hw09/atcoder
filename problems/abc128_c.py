@@ -1,27 +1,23 @@
-n, m = map(int, input().split())
-bulbs = []
-for _ in range(m):
-    b = tuple(map(int, input().split()))
-    bulbs.append(b[1:])
+N, M = map(int, input().split())
 
-p = list(map(int, input().split()))
+S = [list(map(int, input().split()))[1:] for i in range(M)]
+P = list(map(int, input().split()))
 
 ans = 0
 
-for switch in range(2**n):
-    check = [0] * m
-    for i, bulb in enumerate(bulbs):
+for sw in range(2**N):
+    ch = [False] * M
+    for i in range(M):
         cnt = 0
-        for b in bulb:
-            if switch >> (b-1) & 1:
+        for j in S[i]:
+            if sw >> (j-1) & 1:
                 cnt += 1
-            
-        if cnt % 2 == p[i]:
-            check[i] = True
+        if cnt % 2 == P[i]:
+            ch[i] = True
         else:
-            check[i] = False
-    
-    if  all(check):
+            ch[i] = False
+
+    if all(ch):
         ans += 1
 
 print(ans)
